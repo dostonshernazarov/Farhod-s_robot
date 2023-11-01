@@ -16,7 +16,7 @@ from loader import dp, bot
 
 @dp.message_handler(IsPrivate(), text="📝 Fikr-mulohaza. A'loqa")
 async def boglanishHandler(message: Message):
-    await message.answer("Fikr yoki shikoyatingizni yozing", reply_markup=cancel)
+    await message.answer("Fikr yoki shikoyatingizni yozing")
     await FikrData.fikr.set()
 
 @dp.message_handler(state=FikrData.fikr)
@@ -24,7 +24,7 @@ async def fikr_func(message: Message):
     
     global fikr
     fikr = str(message.text)
-    await message.answer("Telefon raqamingizni yuboring! (91-321-44-55)", reply_markup=cancel)
+    await message.answer("Telefon raqamingizni yuboring! (91-321-44-55)")
     await FikrData.fikrNum.set()
 
 # @dp.message_handler(text="❌ Bekor qilish")
